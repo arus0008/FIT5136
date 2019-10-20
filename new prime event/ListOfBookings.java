@@ -28,17 +28,7 @@ public class ListOfBookings
         bookings = newBookings;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public void addBooking()
-    {
-        //Booking b = new Booking();
-        //b.add(new Booking());
-    }
+    
     
     public ArrayList<Booking> getListOfBookings()
     {
@@ -94,22 +84,17 @@ public class ListOfBookings
                 {
                     //drivers.add(parser.next());
                     String[] bookingValues = parser.nextLine().split(",");
-                    //String bookingNo = bookingValues[0];
                     String name = bookingValues[0];
                     String date = bookingValues[1];
                     String time = bookingValues[2];
                     String status = bookingValues[3];
                     
-                    
-
                     Booking booking = new Booking();
-                    //booking.setBookingNo(bookingNo);
                     booking.setName(name);
                     booking.setDate(date);
                     booking.setTime(time);
                     booking.setStatus(Integer.parseInt(status));
                     
-
                     bookings.add(booking);
 
                 }

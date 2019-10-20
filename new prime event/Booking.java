@@ -5,22 +5,22 @@ import java.util.ArrayList;
 
 public class Booking
 {
-    //private Timestamp bookingNo;
+    
     private String name;
     private String date;
     private String time;
     private int status;//1.Ongoing 2. Complished 3. Future date
-    //private ArrayList<Review> reviews;
+    
     
 
     public Booking()
     {
-        //Timestamp bookingNo = ;
+        
         name = "";
         date = "";
         time = "";
         status = 1; 
-        //reviews = new ArrayList<>();
+        
     }
     
     public Booking(String newName, String newDate, String newTime, int newStatus)

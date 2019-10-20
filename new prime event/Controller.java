@@ -12,7 +12,10 @@ public class Controller
     public Controller()
     {
         // initialise instance variables
+        bookings = new ListOfBookings();
         users = new ListOfUsers();
+        halls = new ListOfHalls();
+        quotations = new ListOfQuotations();
     }
     
     public void startApp()
@@ -70,7 +73,7 @@ public class Controller
             else
                 counter = 0;
         }
-        //System.out.println(position + " " + counter);
+        
         if (counter == 1)
         {
             while(!passwd.equals(users.getSpecificUsersPassword(position)))
@@ -86,30 +89,9 @@ public class Controller
         {
             System.out.println("Please go to register!");
             register();
-            //System.out.println("Do nothing");
+            
         }
-        
-        /*
-         * 
-         
-        for(int i =0; i<users.getNoOfUsers(); i++){ //What is the range of i? // answer: Length of the users arraylist
-            if(!email.equals(users.getSpecificUsersEmail(i)))//Something wrong...
-            {System.out.println("Please go to register!");
-                register();
-            }
-            else{
-                System.out.println("Please enter your password:");
-                String passwd = console.nextLine();
-                if (!passwd.equals(users.getSpecificUsersPassword(i))) // created a method in list of users to get specific users password
-                {System.out.println("Wrong password!");
-                    passwd = console.nextLine();}
-                else{
-                    System.out.println("Log in successful!");
-                    break;
-                }
-            }
-        }*/
-        
+               
         if(users.users.get(position).getType() == 1)
         {
                 System.out.println("1. View halls");
@@ -151,71 +133,27 @@ public class Controller
                 System.out.println("Please enter 1-8 to select：");  
         }
         
-        /*
-        for(int a = 0; a<users.getNoOfUsers(); a++)
-        {
-            if(users.users.get(a).getType() == 1)
-            {
-                System.out.println("1. View halls");
-                System.out.println("2. Select a hall");
-                System.out.println("3. Book a hall");
-                System.out.println("4. Request for a quotation");
-                System.out.println("5. View a booking");
-                System.out.println("6. Change a booking");
-                System.out.println("7. Cancel a booking");
-                System.out.println("8. Write a review");
-                System.out.println("Please enter 1-8 to select：");
-            }
-            else if(users.users.get(a).getType() == 2)
-            {
-                System.out.println("1. Create a hall");
-                System.out.println("2. Update a hall");
-                System.out.println("3. Delete a hall");
-                System.out.println("4. Update a booking");
-                System.out.println("5. View a booking");
-                System.out.println("6. Add discount");
-                System.out.println("7. Remove discount");
-                System.out.println("8. Manage payments");
-                System.out.println("9. Confirm a quotation");
-                System.out.println("10. Delete a quotation");
-                System.out.println("11. Confirm a refund");
-                System.out.println("12. Print receipt");
-                System.out.println("Please enter 1-12 to select：");
-            }
-            else if(users.users.get(a).getType() == 3)
-            {
-                System.out.println("1. Add users");
-                System.out.println("2. Update users");
-                System.out.println("3. Delete users");
-                System.out.println("4. Reset password");
-                System.out.println("5. Add discount");
-                System.out.println("6. Delete discount");
-                System.out.println("7. Identify password");
-                System.out.println("8. Identify roles");
-                System.out.println("Please enter 1-8 to select：");  
-            }
-        }*/
     }
 
     public void register()
     {
-        //ArrayList<String> user = new ArrayList<>();
+        
         Scanner console = new Scanner(System.in);
         System.out.println("Please enter your first name：");
         String fname = console.nextLine();
-        //user.add(0,fname);
+        
         System.out.println("Please enter your last name：");
         String lname = console.nextLine();
-        //user.add(1,lname);
+        
         System.out.println("Please enter your email：");
         String email = console.nextLine();
-        //user.add(2,email);
+        
         System.out.println("Please enter your phone number：");
         String phoneNo = console.nextLine();
-        //user.add(3,phoneNo);
+        
         System.out.println("Please enter your address：");
         String address = console.nextLine();
-        //user.add(4,address);
+        
         System.out.println("Please enter 1,2 or 3 if you are 1.Customer 2. Owner 3.Administrator");
         int type = console.nextInt();
         while(type != 1 && type != 2 && type != 3)
@@ -223,8 +161,7 @@ public class Controller
             System.out.println("Error!Please enter 1,2 or 3 if you are 1.Customer 2. Owner 3.Administrator");
             type = console.nextInt();
         }
-        //String typeS = Integer.toString(type);
-        //user.add(5,typeS);
+        
         System.out.println("Please enter your password：");
         String passwd1 = console.next();
         System.out.println("Please confirm your password：");
@@ -238,9 +175,6 @@ public class Controller
             passwd2 = console.nextLine();
         }
         String passwd = passwd1;
-        //user.add(6,passwd);
-        //user.add("\n");
-        //users.writeFile(User user);//Not sure how to use this method.
         users.addUser(fname, lname, email, phoneNo, address, type, passwd);
         users.writeFile();
         logIn();
@@ -318,9 +252,6 @@ public class Controller
     public void bookHall()
     {
         quotations.display();
-        //May be a list of quotations should be displayed here.
-        //(Or the user cannot know which quotation to select)
-        //But readFile Method doesn`t create an arraylist.
         System.out.println("Enter the number of quatation to book a hall.");
         System.out.println("Enter 0 to exit.");
         Scanner console = new Scanner(System.in);
@@ -345,7 +276,7 @@ public class Controller
             int status = 3;
             bookings.addBooking(name, date, time, status);
             bookings.writeFile();
-            //bookingNo = new Timestamp(System.currentTimeMillis());
+            
         }
     }
     
@@ -378,6 +309,40 @@ public class Controller
             review = console.nextLine();
             halls.setSpecificHallsReview(position, review);
             System.out.println("Log in successful!");
+        }
+        
+    }
+    
+    public void searchHallInput()
+    {
+        Scanner console = new Scanner(System.in);
+        System.out.println("Please enter 1, 2, 3  OR 4 if you want to search halls by: 1.NAME 2. FUNCTION 3.ADDRESS 4.AVAILABILITY  ");
+        String type = console.nextLine();
+        switch (type)
+        {
+            case "1":
+            System.out.println("Please enter a Keyword to search");
+            String name = console.nextLine();
+            halls.findHallByName(name);
+            break;
+            
+            case "2":
+            System.out.println("Please enter a Keyword to search");
+            String function = console.nextLine();
+            halls.findHallByFunction(function);
+            break;
+            
+            case "3":
+            System.out.println("Please enter a Keyword to search");
+            String address = console.nextLine();
+            halls.findHallByAddr(address);
+            break;
+            
+            case "4":
+            System.out.println("Please enter a Keyword to search");
+            String availability = console.nextLine();
+            halls.findHallByAvail(availability);
+            break;
         }
         
     }

@@ -100,7 +100,6 @@ public class ListOfQuotations
                     String price = quotationValues[4];
 
                     Quotation quotation = new Quotation();
-                    //booking.setBookingNo(bookingNo);
                     quotation.setName(name);
                     quotation.setDate(date);
                     quotation.setTime(time);

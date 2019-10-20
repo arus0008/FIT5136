@@ -13,9 +13,6 @@ public class ListOfHalls
 {
     // instance variables - replace the example below with your own
     public ArrayList<Hall> halls;
-    // A parser for handling user commands.
-    //private Parser parser;
-
     /**
      * Constructor for objects of class HallController
      */
@@ -28,7 +25,7 @@ public class ListOfHalls
     public ListOfHalls(ArrayList<Hall> newHalls)
     {
         halls = newHalls;
-        //parser = new Parser();
+        
     }
 
     /**
@@ -48,7 +45,7 @@ public class ListOfHalls
                 Scanner parser = new Scanner(inputFile);
                 while (parser.hasNextLine())
                 {
-                    //drivers.add(parser.next());
+                    
                     String[] hallValues = parser.nextLine().split(",");
                     String hallName = hallValues[0];
                     String hallAddr = hallValues[1];
@@ -81,59 +78,110 @@ public class ListOfHalls
         }
     }
         
-    public String searchHallInput()
+    public void findHallByFunction(String keyword)
     {
-        Scanner console = new Scanner(System.in);
-        System.out.println("Please enter a Keyword to search");
-        String keyword = console.nextLine();
-        return keyword;
+        for (int i = 0; i<getNoOfHalls(); i++)
+        {
+            if(keyword.equals(getSpecificHallsFunction(i)))
+            {
+                
+                System.out.println(getSpecificHallsName(i) + 
+                                    ", "+ getSpecificHallsAddr(i) + 
+                                    ", " + getSpecificHallsDesc(i) + 
+                                    ", " + getSpecificHallsFunction(i)+
+                                    ", " + getSpecificHallsPrice(i) +
+                                    ", " + getSpecificHallsSize(i) + 
+                                    ", " + getSpecificHallsAvail(i) +
+                                    ", " + getSpecificHallsReview(i));
+                
+                
+            }
+            
+            else
+                continue;
+            
+            
+        }
     }
     
-    /*public Hall findHallByFunction(String keyword)
+    public void findHallByName(String keyword)
     {
-        //method verifu the user
-        /*for(Hall hall : halls) {
-            if(hall.getHallFunction().equals(keyword)) {
-                System.out.println(hall.getFullDetails());
-                return hall;
+                
+        for (int i = 0; i<getNoOfHalls(); i++)
+        {
+            if(keyword.equals(getSpecificHallsName(i)))
+            {
+                
+                System.out.println(getSpecificHallsName(i) + 
+                                    ", "+ getSpecificHallsAddr(i) + 
+                                    ", " + getSpecificHallsDesc(i) + 
+                                    ", " + getSpecificHallsFunction(i)+
+                                    ", " + getSpecificHallsPrice(i) +
+                                    ", " + getSpecificHallsSize(i) + 
+                                    ", " + getSpecificHallsAvail(i) +
+                                    ", " + getSpecificHallsReview(i));
+                
+                
             }
+            
+            else
+                continue;
+            
+            
         }
-        return null;
-        
-       
-    }*/
-    
-    public Hall findHallByName(String keyword)
-    {
-        for(Hall hall : halls) {
-            if(hall.getHallName().equals(keyword)) {
-                System.out.println(hall.getFullDetails());
-                return hall;
-            }
-        }
-        return null;
     }
     
-    public Hall findHallByAddr(String keyword)
+    public void findHallByAddr(String keyword)
     {
-        for(Hall hall : halls) {
-            if(hall.getHallAddr().equals(keyword)) {
-                System.out.println(hall.getFullDetails());
-                return hall;
+               
+        for (int i = 0; i<getNoOfHalls(); i++)
+        {
+            if(keyword.equals(getSpecificHallsAddr(i)))
+            {
+                
+                System.out.println(getSpecificHallsName(i) + 
+                                    ", "+ getSpecificHallsAddr(i) + 
+                                    ", " + getSpecificHallsDesc(i) + 
+                                    ", " + getSpecificHallsFunction(i)+
+                                    ", " + getSpecificHallsPrice(i) +
+                                    ", " + getSpecificHallsSize(i) + 
+                                    ", " + getSpecificHallsAvail(i) +
+                                    ", " + getSpecificHallsReview(i));
+                
+                
             }
+            
+            else
+                continue;
+            
+            
         }
-        return null;
     }
     
-    public Hall findHallByAvail(String keyword)
+    public void findHallByAvail(String keyword)
     {
-        for(Hall hall : halls) {
-            if(hall.getHallAvailability().equals(keyword)) {
-                System.out.println(hall.getFullDetails());
-                return hall;
+        for (int i = 0; i<getNoOfHalls(); i++)
+        {
+            if(keyword.equals(getSpecificHallsAvail(i)))
+            {
+                
+                System.out.println(getSpecificHallsName(i) + 
+                                    ", "+ getSpecificHallsAddr(i) + 
+                                    ", " + getSpecificHallsDesc(i) + 
+                                    ", " + getSpecificHallsFunction(i)+
+                                    ", " + getSpecificHallsPrice(i) +
+                                    ", " + getSpecificHallsSize(i) + 
+                                    ", " + getSpecificHallsAvail(i) +
+                                    ", " + getSpecificHallsReview(i));
+                
+                
             }
+            
+            else
+                continue;
+            
+            
         }
-        return null;
     }
     
     public int getNoOfHalls()
@@ -154,6 +202,44 @@ public class ListOfHalls
     {
         return halls.get(index).getHallName();
     }
+    
+    public String getSpecificHallsAddr(int index) throws NullPointerException
+    {
+        return halls.get(index).getHallAddr();
+    }
+    
+    public String getSpecificHallsDesc(int index) throws NullPointerException
+    {
+        return halls.get(index).getHallDesc();
+    }
+    
+    public String getSpecificHallsFunction(int index) throws NullPointerException
+    {
+        return halls.get(index).getHallFunction();
+    }
+    
+    public Double getSpecificHallsPrice(int index) throws NullPointerException
+    {
+        return halls.get(index).getHallPrice();
+        
+    }
+    
+    public Double getSpecificHallsSize(int index) throws NullPointerException
+    {
+        return halls.get(index).getHallSize();
+        
+    }
+    
+    public String getSpecificHallsAvail(int index) throws NullPointerException
+    {
+        return halls.get(index).getHallAvailability();
+    }
+    
+    public String getSpecificHallsReview(int index) throws NullPointerException
+    {
+        return halls.get(index).getHallReview();
+    }
+    
     
     public void setSpecificHallsReview(int index, String review) throws NullPointerException
     {
