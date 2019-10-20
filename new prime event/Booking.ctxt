@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=Booking
+comment1.params=
+comment1.target=Booking()
+comment10.params=newStatus
+comment10.target=void\ setStatus(int)
+comment2.params=newName\ newDate\ newTime\ newStatus
+comment2.target=Booking(java.lang.String,\ java.lang.String,\ java.lang.String,\ int)
+comment3.params=
+comment3.target=java.lang.String\ getName()
+comment3.text=\r\n\ \ \ \ //public\ Timestamp\ getBookingNo()\r\n\ \ \ \ //{\r\n\ \ \ \ \ \ \ \ //return\ bookingNo;\r\n//}
+comment4.params=
+comment4.target=java.lang.String\ getDate()
+comment5.params=
+comment5.target=java.lang.String\ getTime()
+comment6.params=
+comment6.target=int\ getStatus()
+comment7.params=newName
+comment7.target=void\ setName(java.lang.String)
+comment8.params=newDate
+comment8.target=void\ setDate(java.lang.String)
+comment9.params=newTime
+comment9.target=void\ setTime(java.lang.String)
+numComments=11
