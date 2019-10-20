@@ -1,0 +1,7 @@
+Adam,Black,adamblack@gmail,0487254585,123 Collins Street,1,adamblack2019
+Lily,White,lilywhite@gmail,0463885656,58 City Road,2,lilywhite2019
+James,Brown,jamesbrown@gmail,0472867291,90 Dandenong Raod,3,jamesbrown2019
+Aruhsi,Kumar,ak@gmail.com,0383762,Carnegie,1,Hakuna
+Sid,Kumar,sk@gmail.com,1234678,India,1,Iamyours
+Nick,Bate,nick@gmail.com,8677482,south africa,2,Doneit
+Arushi,Kumar,ak@gmail,123456,carnege,1,Ak2019

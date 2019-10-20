@@ -1,0 +1,3 @@
+James Hall,Malvern East,Perfect for all your wedding needs,Wedding,500,50,Booked,great place 
+Maddison Hall,Carnegie,Perfect for all your Birthday needs,Birthday,80,30,Booked, so much fun 
+Christopher Hall,Malvern East,Perfect for all your wedding needs,Wedding,500,50,Booked, book again
