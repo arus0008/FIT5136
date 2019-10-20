@@ -135,4 +135,30 @@ public class ListOfHalls
         }
         return null;
     }
+    
+    public int getNoOfHalls()
+    {
+        return halls.size();
+    }
+    
+       
+    public void display()
+    {
+        for(int i = 0; i < getNoOfHalls(); i++)
+        {
+            System.out.println(halls.get(i).getFullDetails());
+        }
+    }
+    
+    public String getSpecificHallsName(int index) throws NullPointerException
+    {
+        return halls.get(index).getHallName();
+    }
+    
+    public void setSpecificHallsReview(int index, String review) throws NullPointerException
+    {
+        halls.get(index).setHallReview(review);
+    }
+    
+    
 }

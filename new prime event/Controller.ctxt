@@ -16,4 +16,6 @@ comment7.params=
 comment7.target=void\ requestQuotation()
 comment8.params=
 comment8.target=void\ bookHall()
-numComments=9
+comment9.params=
+comment9.target=void\ writeReview()
+numComments=10

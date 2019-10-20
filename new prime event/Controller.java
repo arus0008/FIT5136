@@ -348,4 +348,37 @@ public class Controller
             //bookingNo = new Timestamp(System.currentTimeMillis());
         }
     }
+    
+    public void writeReview()
+    {
+        halls.display();
+        Scanner console = new Scanner(System.in);
+        System.out.println("Please enter the hall name you widh to write a review on");
+        String hallName=console.nextLine();
+        String review = "";
+        int counter = 0;
+        int position = 0;
+        for (int i = 0; i<halls.getNoOfHalls(); i++)
+        {
+            if(hallName.equals(halls.getSpecificHallsName(i)))
+            {
+                position = i;
+                counter = 1;
+                break;
+                
+                
+            }
+            else
+                counter = 0;
+        }
+        
+        if (counter == 1)
+        {
+            System.out.println("Please write a review : ");
+            review = console.nextLine();
+            halls.setSpecificHallsReview(position, review);
+            System.out.println("Log in successful!");
+        }
+        
+    }
 }
